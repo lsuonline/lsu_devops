@@ -1,0 +1,10 @@
+#!/bin/sh
+######################################################
+#diffs 45 with fourFiveMerge
+clear
+echo " *** Ignoring *.git, /var/www/45/admin/cli/resetblocks.php, and /var/www/45/config_local.php"
+echo " *** Diffing /var/www/45 with /home/rrusso/Moodles/lsuce-moodle"
+diff -Narq -x '*.git' -x '*.gitignore' -x '*.github' -x 'resetblocks.php' -x 'config_local.php' /var/www/45 /home/rrusso/Moodles/lsuce-moodle > /tmp/sdiff
+diff -Narq -x '*.git' -x '*.gitignore' -x '*.github' -x 'resetblocks.php' -x 'config_local.php' /var/www/45 /home/rrusso/Moodles/lsuce-moodle
+COUNT=$(wc -l /tmp/sdiff)
+echo " *** $COUNT files have changed\n"
